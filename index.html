@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Upload Example</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="header-section">
+      <h1 class="header-title">Edge Detection Web App</h1>
+      <p id="status" style="margin-left: 100px">OpenCV.js is loading...</p>
+    </section>
+    <section class="container">
+      <div class="inputoutput">
+        <!-- Message initially shown -->
+        <p id="placeholderMessage" class="message">
+          No image selected. Please choose an image.
+        </p>
+
+        <!-- Image element hidden initially -->
+        <figure>
+          <img id="imageSrc" style="display: none" alt="Image Preview" />
+          <figcaption class="caption">Image Source</figcaption>
+        </figure>
+
+        <form id="uploadForm">
+          <input
+            type="file"
+            id="fileInput"
+            name="imageUpload"
+            accept="image/*"
+          />
+        </form>
+      </div>
+
+      <!-- Canvas output for image processing -->
+      <div class="inputoutput">
+        <figure>
+          <canvas id="imageOutput"></canvas>
+          <figcaption class="caption" id="canvas-caption">
+            Canvas Output
+          </figcaption>
+        </figure>
+        <!-- Sliders for Canny edge detection -->
+        <div id="slider-container" style="display: none">
+          <div class="button-container">
+            <button id="saveImageBtn" class="button">Save Image</button>
+          </div>
+          <div>
+            <label for="lowThreshold"
+              >Low Threshold: <span id="lowThresholdValue">50</span></label
+            >
+            <input
+              type="range"
+              id="lowThreshold"
+              min="0"
+              max="255"
+              value="108"
+            />
+          </div>
+          <div>
+            <label for="highThreshold"
+              >High Threshold: <span id="highThresholdValue">100</span></label
+            >
+            <input
+              type="range"
+              id="highThreshold"
+              min="0"
+              max="255"
+              value="162"
+            />
+          </div>
+
+          <div class="func-doc">
+            cv.Canny(src, dst, lowThreshold, highThreshold, apertureSize = 3,
+            L2gradient = false)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script async src="libs/opencv.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

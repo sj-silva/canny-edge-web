@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #f4f4f4;
+}
+
+.header-title {
+  text-align: center;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.inputoutput {
+  display: flex;
+  flex-direction: column; /* Arrange the image and caption in a column */
+  align-items: center; /* Align items to the left */
+  margin: 10px;
+}
+
+#imageSrc,
+#imageOutput {
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.message {
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+form {
+  border: 2px solid #4caf50;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #fff;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form input {
+  margin-top: 10px;
+}
+
+.caption {
+  text-align: center;
+  font-style: italic;
+  color: #444;
+}
+
+.func-doc {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.button {
+  background-color: #007bff; /* Blue background */
+  border: none; /* No borders */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding for the button */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline from text */
+  display: inline-block; /* Keep it inline */
+  font-size: 16px; /* Text size */
+  margin: 0px 0; /* Space around the button */
+  cursor: pointer; /* Mouse pointer on hover */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+.button:active {
+  background-color: #00408d; /* Even darker blue when clicked */
+  transform: scale(0.98); /* Shrink the button slightly on click */
+}
+
+.button-container {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically (if needed) */
+  height: 100%;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
