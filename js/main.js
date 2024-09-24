@@ -16,7 +16,11 @@ const highThresholdValueDisplay = document.querySelector("#highThresholdValue");
 
 var Module = {
   onRuntimeInitialized() {
-    document.getElementById("status").innerHTML = "OpenCV.js is ready.";
+    const statusButton = document.querySelector("#status");
+    statusButton.innerHTML =
+      'OpenCV.js is ready! <i class="bi bi-check-circle"></i>';
+    statusButton.classList.remove("btn-primary");
+    statusButton.classList.add("btn-success");
   },
 };
 
@@ -61,11 +65,23 @@ saveImageButton.addEventListener("click", () => {
 // Sliders Listeners
 // Add event listeners for sliders
 lowThresholdSlider.addEventListener("input", () => {
+  const lowVal = parseInt(lowThresholdSlider.value);
+  const highVal = parseInt(highThresholdSlider.value);
+
+  // Ensure lowThreshold is less than or equal to highThreshold
+  lowThresholdSlider.value = lowVal > highVal ? highVal : lowVal;
+
   lowThresholdValueDisplay.textContent = lowThresholdSlider.value;
   applyCanny(cv.imread(imgSource)); // Process image with updated threshold
 });
 
 highThresholdSlider.addEventListener("input", () => {
+  const lowVal = parseInt(lowThresholdSlider.value);
+  const highVal = parseInt(highThresholdSlider.value);
+
+  // Ensure highThreshold is greater than or equal to lowThreshold
+  highThresholdSlider.value = highVal < lowVal ? lowVal : highVal;
+
   highThresholdValueDisplay.textContent = highThresholdSlider.value;
   applyCanny(cv.imread(imgSource)); // Process image with updated threshold
 });
